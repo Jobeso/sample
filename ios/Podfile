@@ -7,12 +7,11 @@ target 'sample' do
 
   # Pods for sample
 
-  pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'RCTAnimation',
-    'RCTActionSheet',
-    'CxxBridge',
+    'CxxBridge', # Required For React Native 0.45.0+
     'Core',
+    'RCTActionSheet',
+    'RCTAnimation',
     'DevSupport',
     'RCTGeolocation',
     'RCTImage',
@@ -25,6 +24,11 @@ target 'sample' do
     'RCTWebSocket'
     # Add any other subspecs you want to use in your project
   ]
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  # Third party deps podspec link
+  pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
  
 end
